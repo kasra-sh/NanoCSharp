@@ -9,5 +9,7 @@ namespace Nano.Web
     public class TT: BaseEntity
     {
         public string Name { get; set; }
+
+        public virtual ICollection<YY> YYs { get; set; }
     }
 }

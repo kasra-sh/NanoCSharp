@@ -1,6 +1,6 @@
 ﻿namespace Nano.Data
 {
-    public interface IEfRepository
+    public interface IRepository
     {
         NanoDbContext GetDbContext();
     }

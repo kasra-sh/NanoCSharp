@@ -35,6 +35,7 @@ namespace Nano.Web
             });
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+            
             services.AddDbContext<NanoDbContext>(builder =>
             {
                 builder.UseSqlServer("Server=192.168.20.51; user id=travener; password=123321; database=TTT;",b=>b.MigrationsAssembly("Nano.Web"));

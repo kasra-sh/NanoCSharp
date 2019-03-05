@@ -24,6 +24,8 @@ namespace Nano.Web.Controllers
             {
                 Name = "Ahmad"
             });
+
+            
             _dbContext.SaveChanges();
             Console.WriteLine(" ---------------------- " + _dbContext.Set<TT>().FirstOrDefault()?.Name);
             return View();
