@@ -2,11 +2,11 @@
 using System.Xml;
 using System.Xml.Linq;
 using System.Xml.Serialization;
-using Nano.Core.RestClient.Xml;
+using Nano.Core.Http.RestClient.Xml;
 
-namespace Nano.Core.Content
+namespace Nano.Core.Utils
 {
-    public class XmlContent
+    public class XmlUtil
     {
         public string ContentType => "application/xml";
 
@@ -28,12 +28,12 @@ namespace Nano.Core.Content
 
         public static string Generate(object obj)
         {
-            return new XmlContent().Serialize(obj);
+            return new XmlUtil().Serialize(obj);
         }
 
         public static T Load<T>(string xml) where T: class
         {
-            return new XmlContent().Deserialize<T>(xml);
+            return new XmlUtil().Deserialize<T>(xml);
         }
 
         public static string GenerateIndented(string xml)

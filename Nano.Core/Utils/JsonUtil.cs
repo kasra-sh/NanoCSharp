@@ -1,9 +1,11 @@
 ﻿using System;
+using System.IO;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 
-namespace Nano.Core.Content
+namespace Nano.Core.Utils
 {
-	public class JsonContent
+	public class JsonUtil
     {
         public string ContentType => "application/json";
 
@@ -28,6 +30,16 @@ namespace Nano.Core.Content
             }
         }
 
+        public static JObject LoadObject(string json)
+        {
+            return JObject.Parse(json);
+        }
+
+        public static JArray LoadArray(string json)
+        {
+            return JArray.Parse(json);
+        }
+
         public string Serialize<T>(T obj) where T: class
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(obj);
@@ -45,7 +57,16 @@ namespace Nano.Core.Content
                 Console.WriteLine(e);
                 throw;
             }
+        }
 
+        public static JObject LoadFileAsObject(string file)
+        {
+            return JObject.Parse(File.ReadAllText(file));
+        }
+
+        public static JArray LoadFileAsArray(string file)
+        {
+            return JArray.Parse(File.ReadAllText(file));
         }
     }
 }

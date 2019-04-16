@@ -2,10 +2,10 @@
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Linq;
-using Nano.Core.Content;
+using Nano.Core.Utils;
 using Newtonsoft.Json.Linq;
 
-namespace Nano.Core.RestClient
+namespace Nano.Core.Http.RestClient
 {
     public static class ResponseExtensions
     {
@@ -37,14 +37,14 @@ namespace Nano.Core.RestClient
             (
                 resString,
                 res,
-                JsonContent.Load<T>(resString),
+                JsonUtil.Load<T>(resString),
                 msg.StatusCode
             );
         }
 
         public static async Task<T> ReadXml<T>(this Task<HttpResponseMessage> message) where T : class
         {
-            return XmlContent.Load<T>(await message.GetString());
+            return XmlUtil.Load<T>(await message.GetString());
         }
 
         public static async Task<T> ReadParsianXml<T>(this Task<HttpResponseMessage> message, string rootName)
@@ -52,7 +52,7 @@ namespace Nano.Core.RestClient
         {
             var xDoc = XDocument.Parse(await message.GetString());
             var newXDoc = new XDocument(new XElement(rootName, xDoc.Root));
-            return XmlContent.Load<T>(newXDoc.ToString());
+            return XmlUtil.Load<T>(newXDoc.ToString());
         }
 
         public static async Task<string> GetString(this Task<HttpResponseMessage> message)

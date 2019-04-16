@@ -3,10 +3,10 @@ using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
-using Nano.Core.Content;
+using Nano.Core.Utils;
 using Newtonsoft.Json.Linq;
 
-namespace Nano.Core.RestClient
+namespace Nano.Core.Http.RestClient
 {
 
     public class HttpRequestBuilder
@@ -67,7 +67,7 @@ namespace Nano.Core.RestClient
 
         public HttpRequestBuilder XmlContent(object xml)
         {
-            return Content(ContentTypes.ApplicationXml, Encoding.UTF8.GetBytes(new XmlContent().Serialize(xml)));
+            return Content(ContentTypes.ApplicationXml, Encoding.UTF8.GetBytes(new XmlUtil().Serialize(xml)));
         }
 
         public UrlEncodedContentBuilder UrlEncodedContent()

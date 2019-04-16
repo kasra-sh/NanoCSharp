@@ -3,7 +3,7 @@ using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Threading.Tasks;
 
-namespace Nano.Core.RestClient
+namespace Nano.Core.Http.RestClient
 {
     public class HttpRequest
     {

@@ -1,4 +1,4 @@
-﻿namespace Nano.Core.RestClient
+﻿namespace Nano.Core.Http.RestClient
 {
     public class ContentTypes
     {

@@ -7,7 +7,7 @@ using System.Xml;
 using System.Xml.Linq;
 using System.Xml.Serialization;
 
-namespace Nano.Core.RestClient.Xml
+namespace Nano.Core.Http.RestClient.Xml
 {
     public static class NanoXmlMapper
     {

@@ -7,11 +7,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Nano.Core", "Nano.Core\Nano
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Nano.Web", "Nano.Web\Nano.Web.csproj", "{F6614C64-DB35-47A8-A02A-A7603D1ADEE0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nano.Services", "Nano.Services\Nano.Services.csproj", "{7F4C51EE-E472-4523-BBFF-F7A37CD2D55D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Nano.Services", "Nano.Services\Nano.Services.csproj", "{7F4C51EE-E472-4523-BBFF-F7A37CD2D55D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nano.WebFramework", "Nano.WebFramework\Nano.WebFramework.csproj", "{F677B317-FFEB-45A3-AB14-B4410218813F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Nano.WebFramework", "Nano.WebFramework\Nano.WebFramework.csproj", "{F677B317-FFEB-45A3-AB14-B4410218813F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nano.Data", "Nano.Data\Nano.Data.csproj", "{8FE871DD-DC2D-4CD3-AC3B-FE59A90AE265}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Nano.Data", "Nano.Data\Nano.Data.csproj", "{8FE871DD-DC2D-4CD3-AC3B-FE59A90AE265}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nano.Web.Cms", "Nano.Web.Cms\Nano.Web.Cms.csproj", "{67B1DC7D-FAF0-4DB3-AABE-D88A4F3129B2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{8FE871DD-DC2D-4CD3-AC3B-FE59A90AE265}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8FE871DD-DC2D-4CD3-AC3B-FE59A90AE265}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8FE871DD-DC2D-4CD3-AC3B-FE59A90AE265}.Release|Any CPU.Build.0 = Release|Any CPU
+		{67B1DC7D-FAF0-4DB3-AABE-D88A4F3129B2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{67B1DC7D-FAF0-4DB3-AABE-D88A4F3129B2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{67B1DC7D-FAF0-4DB3-AABE-D88A4F3129B2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{67B1DC7D-FAF0-4DB3-AABE-D88A4F3129B2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
