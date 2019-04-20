@@ -12,8 +12,11 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Nano.Core.Content;
+using Nano.Core.Extensions;
+using Nano.Core.IoC;
 using Nano.Core.Utils;
 using Nano.Data;
+using Nano.Web.Cms.Services;
 
 namespace Nano.Web.Cms
 {
@@ -39,10 +42,12 @@ namespace Nano.Web.Cms
             services.AddDbContext<NanoDbContext>(builder =>
             {
                 //                builder.UseSqlServer("Server=192.168.20.51; user id=travener; password=123321; database=TTT;", b => b.MigrationsAssembly(Assembly.GetCallingAssembly().GetName().Name));
-                builder.UseSqlServer(JsonUtil.LoadFileObject("appsettings.json").Get<string>("ConnectionString"), b => b.MigrationsAssembly(Assembly.GetCallingAssembly().GetName().Name));
+                var connection = JsonUtil.LoadFileAsObject("appsettings.json").Get<string>("ConnectionString");
+                builder.UseSqlServer(connection, b => b.MigrationsAssembly(Assembly.GetCallingAssembly().GetName().Name));
             });
-
+            services.AddScoped<ATestService, TestService>();
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+            services.InitNanoEngine();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

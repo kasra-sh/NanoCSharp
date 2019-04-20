@@ -4,7 +4,10 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.DependencyInjection;
+using Nano.Core.IoC;
 using Nano.Web.Cms.Models;
+using Nano.Web.Cms.Services;
 
 namespace Nano.Web.Cms.Controllers
 {
@@ -38,6 +41,12 @@ namespace Nano.Web.Cms.Controllers
         public IActionResult Error()
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+        }
+
+        public IActionResult Test()
+        {
+            var ts = NanoEngineContext.Current.GetService<ATestService>();
+            return Ok(ts.GetName());
         }
     }
 }
