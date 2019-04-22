@@ -7,6 +7,7 @@ namespace Nano.Web.Cms.Services
 {
     public abstract class ATestService
     {
+        private string _id;
         protected ATestService()
         {
             
@@ -15,6 +16,16 @@ namespace Nano.Web.Cms.Services
         public string GetName()
         {
             return this.GetType().Name;
+        }
+
+        public void SetId(string id)
+        {
+            _id = id;
+        }
+
+        public string GetId()
+        {
+            return _id;
         }
     }
 

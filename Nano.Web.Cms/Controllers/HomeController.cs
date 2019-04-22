@@ -5,6 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.DependencyInjection;
+using Nano.Core.Extensions;
 using Nano.Core.IoC;
 using Nano.Web.Cms.Models;
 using Nano.Web.Cms.Services;
@@ -13,6 +14,16 @@ namespace Nano.Web.Cms.Controllers
 {
     public class HomeController : Controller
     {
+        private readonly ATestService _testService;
+        private readonly ATestService2 _testService2;
+
+        public HomeController(ATestService testService, ATestService2 testService2)
+        {
+            NanoEngineContext.Current.Resolve<ATestService>();
+            _testService = testService;
+            _testService2 = testService2;
+            testService.SetId(Guid.NewGuid().ToString());
+        }
         public IActionResult Index()
         {
             return View();
@@ -45,8 +56,8 @@ namespace Nano.Web.Cms.Controllers
 
         public IActionResult Test()
         {
-            var ts = NanoEngineContext.Current.GetService<ATestService>();
-            return Ok(ts.GetName());
+//            var ts = NanoEngineContext.Current.GetService<ATestService>();
+            return Ok(_testService.GetId()+" : "+_testService2.GetId());
         }
     }
 }

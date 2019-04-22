@@ -46,6 +46,7 @@ namespace Nano.Web.Cms
                 builder.UseSqlServer(connection, b => b.MigrationsAssembly(Assembly.GetCallingAssembly().GetName().Name));
             });
             services.AddScoped<ATestService, TestService>();
+            services.AddScoped<ATestService2, TestService2>();
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
             services.InitNanoEngine();
         }
