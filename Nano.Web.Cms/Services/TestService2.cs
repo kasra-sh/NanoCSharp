@@ -17,6 +17,7 @@ namespace Nano.Web.Cms.Services
         {
             _testService = testService;
         }
+
         public override string GetId()
         {
             return _testService.GetId();
